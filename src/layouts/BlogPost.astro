@@ -1,48 +1,77 @@
 ---
-import '../styles/global.css';
-import { Image } from 'astro:assets';
-import type { CollectionEntry } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import FormattedDate from '../components/FormattedDate.astro';
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import type { CollectionEntry } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import FormattedDate from "../components/FormattedDate.astro";
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<"blog">["data"];
 
 const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 ---
 
 <html lang="en">
-	<head>
-		<BaseHead title={title} description={description} />
-	</head>
+  <head>
+    <BaseHead title={title} description={description} />
+  </head>
 
-	<body>
-		<main class="w-full">
-			<article>
-				{heroImage && (
-					<div class="w-full">
-						<Image width={1020} height={510} src={heroImage} alt="" class="block mx-auto rounded-lg" />
-					</div>
-				)}
-				<div class="max-w-2xl mx-auto px-4 py-8">
-					<div class="mb-8 leading-tight">
-						<div class="mb-2 text-sm text-gray-500">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="italic">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
-						</div>
-						<h1 class="m-0 mb-2 text-4xl font-bold">{title}</h1>
-						<hr class="border-t border-gray-200" />
-					</div>
-					<div class="prose prose-lg">
-						<slot />
-					</div>
-				</div>
-			</article>
-		</main>
-	</body>
+  <body class="antialiased">
+    <main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
+      <article>
+        <header class="mb-16">
+          <h1 class="md:text-lg font-medium mb-2 tracking-tight leading-tight">
+            {title}
+          </h1>
+          <div
+            class="flex items-center gap-3 text-sm"
+            style="color: var(--mono9)"
+          >
+            <time>
+              <FormattedDate date={pubDate} />
+            </time>
+            {
+              updatedDate && (
+                <>
+                  <span>·</span>
+                  <time>
+                    Updated <FormattedDate date={updatedDate} />
+                  </time>
+                </>
+              )
+            }
+          </div>
+        </header>
+
+        {
+          heroImage && (
+            <div class="mb-16">
+              <Image
+                width={1020}
+                height={510}
+                src={heroImage}
+                alt=""
+                class="w-full rounded-lg"
+              />
+            </div>
+          )
+        }
+
+        <div
+          class="prose prose-invert max-w-none
+					prose-headings:font-semibold prose-headings:tracking-tight
+					prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-7
+					prose-h3:text-xl prose-h3:mt-14 prose-h3:mb-7
+					prose-p:my-6
+					prose-a:text-[--blue] prose-a:underline prose-a:underline-offset-2 hover:prose-a:opacity-70
+					prose-strong:font-semibold
+					prose-code:before:content-none prose-code:after:content-none
+					prose-ul:my-6 prose-ul:pl-8 prose-ul:list-disc
+					prose-ol:my-6 prose-ol:pl-8 prose-ol:list-decimal
+					prose-li:my-2"
+        >
+          <slot />
+        </div>
+      </article>
+    </main>
+  </body>
 </html>

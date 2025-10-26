@@ -14,20 +14,36 @@ const posts = (await getCollection('blog')).sort(
 	<head>
 		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
 	</head>
-	<body>
-		<main class="max-w-2xl mx-auto px-4 py-12">
+	<body class="antialiased">
+		<main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
+			<div class="mb-20">
+				<h1 class="text-3xl sm:text-4xl font-semibold mb-3 tracking-tight">Your Name</h1>
+				<p class="text-base" style="color: var(--mono9)">Software engineer, writer, creator</p>
+			</div>
+
 			<section>
+				<h2 class="text-xl font-semibold mb-10 tracking-tight">Writing</h2>
 				<ul class="flex flex-col gap-8 list-none m-0 p-0">
 					{
 						posts.map((post) => (
 							<li>
-								<a href={`/blog/${post.id}/`} class="flex flex-col gap-2 no-underline group">
-									<h4 class="m-0 text-xl font-semibold leading-snug text-gray-900 group-hover:text-blue-600 transition-colors">
-										{post.data.title}
-									</h4>
-									<p class="m-0 text-sm text-gray-500">
-										<FormattedDate date={post.data.pubDate} />
-									</p>
+								<a href={`/blog/${post.id}/`} class="group block no-underline">
+									<div class="flex flex-col gap-1">
+										<h3 class="text-base font-medium m-0 group-hover:opacity-60 transition-opacity">
+											{post.data.title}
+										</h3>
+										<div class="flex items-center gap-3 text-sm" style="color: var(--mono9)">
+											<time>
+												<FormattedDate date={post.data.pubDate} />
+											</time>
+											{post.data.description && (
+												<>
+													<span>·</span>
+													<p class="m-0">{post.data.description}</p>
+												</>
+											)}
+										</div>
+									</div>
 								</a>
 							</li>
 						))

@@ -1,3 +1,87 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+:root {
+	color-scheme: dark;
+
+	/* Monochrome scale */
+	--mono1: #1a1a1a;
+	--mono2: #1c1c1c;
+	--mono3: #232323;
+	--mono4: #282828;
+	--mono5: #2e2e2e;
+	--mono6: #343434;
+	--mono7: #3e3e3e;
+	--mono8: #505050;
+	--mono9: #707070;
+	--mono10: #7e7e7e;
+	--mono11: #a0a0a0;
+	--mono12: #ededed;
+
+	/* Semantic colors */
+	--fg: #f2f2f2;
+	--bg: var(--mono1);
+
+	/* Accent */
+	--blue: #0070f3;
+
+	/* Border radius */
+	--radius: 8px;
+
+	/* Typography */
+	--text-l: 16px;
+	--leading-l: 1.75;
+	--font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Consolas, 'Liberation Mono', Menlo, monospace;
+	--type-code: 13px/1.5 var(--font-mono);
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: 'Geist', system-ui, -apple-system, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: var(--bg);
+	color: var(--fg);
+	font-size: var(--text-l);
+	line-height: var(--leading-l);
+}
+
+a {
+	color: inherit;
+}
+
+/* Code Block Styling */
+.prose code:not(pre code) {
+	color: var(--mono12);
+	background: var(--mono4);
+	border-radius: 6px;
+	font: var(--type-code);
+	padding: 4px;
+}
+
+.prose a code {
+	text-decoration: underline;
+	text-decoration-color: var(--mono8);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 2px;
+}
+
+.prose pre {
+	tab-size: 4;
+	font-size: 13px;
+	background: var(--mono3);
+	border-radius: var(--radius);
+	padding: 12px 16px;
+	font-family: var(--font-mono);
+	line-height: 24px;
+	margin: 0;
+	overflow-x: auto;
+}
+
+.prose pre code {
+	background: transparent;
+	padding: 0;
+	border-radius: 0;
+	font-family: inherit;
+	font-size: inherit;
+}
