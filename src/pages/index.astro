@@ -18,7 +18,7 @@ const posts = (await getCollection("blog"))
     <main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
       <!-- Header -->
       <div class="mb-6">
-        <h1 class="md:text-lg font-medium mb-2 tracking-tight leading-tight">
+        <h1 class="text-lg font-medium mb-2 tracking-tight leading-tight">
           Anders Myrmel
         </h1>
       </div>
@@ -26,7 +26,8 @@ const posts = (await getCollection("blog"))
       <!-- Introduction -->
       <section class="mb-12">
         <p class="text-[15px] leading-relaxed mb-4">
-          Building thoughtfully designed software for healthcare teams. When I'm not coding, you'll find me on a bike or on the golf course.
+          Building thoughtfully designed software for healthcare teams. When I'm
+          not coding, you'll find me on a bike or on the golf course.
         </p>
         <p class="text-[15px] leading-relaxed">
           You can find me on <a
@@ -53,7 +54,7 @@ const posts = (await getCollection("blog"))
 
       <!-- Projects -->
       <section class="mb-12">
-        <h2 class="text-base font-semibold mb-4 tracking-tight">Projects</h2>
+        <h2 class="text-base font-medium mb-4 tracking-tight">Projects</h2>
         <ul class="flex flex-col gap-3 list-none m-0 p-0">
           <li>
             <a
@@ -100,7 +101,7 @@ const posts = (await getCollection("blog"))
       {
         posts.length > 0 && (
           <section class="mb-12">
-            <h2 class="text-base font-semibold mb-4 tracking-tight">Writing</h2>
+            <h2 class="text-base font-medium mb-4 tracking-tight">Writing</h2>
             <ul class="flex flex-col gap-3 list-none m-0 p-0">
               {posts.map((post) => (
                 <li>
