@@ -1,55 +1,139 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseHead from '../components/BaseHead.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { getCollection } from "astro:content";
+import BaseHead from "../components/BaseHead.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 
-const posts = (await getCollection('blog')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+const posts = (await getCollection("blog"))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3); // Show only 3 most recent posts
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body class="antialiased">
-		<main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
-			<div class="mb-20">
-				<h1 class="text-3xl sm:text-4xl font-semibold mb-3 tracking-tight">Your Name</h1>
-				<p class="text-base" style="color: var(--mono9)">Software engineer, writer, creator</p>
-			</div>
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body class="antialiased">
+    <main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
+      <!-- Header -->
+      <div class="mb-6">
+        <h1 class="md:text-lg font-medium mb-2 tracking-tight leading-tight">
+          Anders Myrmel
+        </h1>
+      </div>
 
-			<section>
-				<h2 class="text-xl font-semibold mb-10 tracking-tight">Writing</h2>
-				<ul class="flex flex-col gap-8 list-none m-0 p-0">
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/blog/${post.id}/`} class="group block no-underline">
-									<div class="flex flex-col gap-1">
-										<h3 class="text-base font-medium m-0 group-hover:opacity-60 transition-opacity">
-											{post.data.title}
-										</h3>
-										<div class="flex items-center gap-3 text-sm" style="color: var(--mono9)">
-											<time>
-												<FormattedDate date={post.data.pubDate} />
-											</time>
-											{post.data.description && (
-												<>
-													<span>·</span>
-													<p class="m-0">{post.data.description}</p>
-												</>
-											)}
-										</div>
-									</div>
-								</a>
-							</li>
-						))
-					}
-				</ul>
-			</section>
-		</main>
-	</body>
+      <!-- Introduction -->
+      <section class="mb-12">
+        <p class="text-[15px] leading-relaxed mb-4">
+          Building thoughtfully designed software for healthcare teams. When I'm not coding, you'll find me on a bike or on the golf course.
+        </p>
+        <p class="text-[15px] leading-relaxed">
+          You can find me on <a
+            href="https://github.com/andersmyrmel"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-2 underline-offset-2 hover:opacity-60 transition-opacity"
+            style="text-decoration-color: var(--mono8)">GitHub</a
+          >, <a
+            href="https://www.linkedin.com/in/andersmyrmel/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-2 underline-offset-2 hover:opacity-60 transition-opacity"
+            style="text-decoration-color: var(--mono8)">LinkedIn</a
+          >, and <a
+            href="https://www.strava.com/athletes/144907516"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline decoration-2 underline-offset-2 hover:opacity-60 transition-opacity"
+            style="text-decoration-color: var(--mono8)">Strava</a
+          >.
+        </p>
+      </section>
+
+      <!-- Projects -->
+      <section class="mb-12">
+        <h2 class="text-base font-semibold mb-4 tracking-tight">Projects</h2>
+        <ul class="flex flex-col gap-3 list-none m-0 p-0">
+          <li>
+            <a
+              href="https://github.com/andersmyrmel/vard"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group block no-underline"
+            >
+              <div class="flex flex-col gap-1">
+                <h3
+                  class="text-[15px] font-normal m-0 group-hover:opacity-60 transition-opacity"
+                >
+                  Vard
+                </h3>
+                <p class="text-sm m-0" style="color: var(--mono9)">
+                  Open-source prompt injection detection library
+                </p>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a
+              href="https://inpageai.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="group block no-underline"
+            >
+              <div class="flex flex-col gap-1">
+                <h3
+                  class="text-[15px] font-normal m-0 group-hover:opacity-60 transition-opacity"
+                >
+                  InPage AI
+                </h3>
+                <p class="text-sm m-0" style="color: var(--mono9)">
+                  In-browser AI assistant for Chrome
+                </p>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Writing -->
+      {
+        posts.length > 0 && (
+          <section class="mb-12">
+            <h2 class="text-base font-semibold mb-4 tracking-tight">Writing</h2>
+            <ul class="flex flex-col gap-3 list-none m-0 p-0">
+              {posts.map((post) => (
+                <li>
+                  <a
+                    href={`/blog/${post.id}/`}
+                    class="group block no-underline"
+                  >
+                    <div class="flex flex-col gap-1">
+                      <h3 class="text-[15px] font-normal m-0 group-hover:opacity-60 transition-opacity">
+                        {post.data.title}
+                      </h3>
+                      <div
+                        class="flex items-center gap-3 text-sm"
+                        style="color: var(--mono9)"
+                      >
+                        <time>
+                          <FormattedDate date={post.data.pubDate} />
+                        </time>
+                        {post.data.description && (
+                          <>
+                            <span>·</span>
+                            <p class="m-0">{post.data.description}</p>
+                          </>
+                        )}
+                      </div>
+                    </div>
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </main>
+  </body>
 </html>

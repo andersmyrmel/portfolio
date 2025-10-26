@@ -18,7 +18,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
   <body class="antialiased">
     <main class="max-w-2xl mx-auto px-6 py-20 sm:py-32">
       <article>
-        <header class="mb-16">
+        <header class="mb-12">
           <h1 class="md:text-lg font-medium mb-2 tracking-tight leading-tight">
             {title}
           </h1>
@@ -44,7 +44,7 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 
         {
           heroImage && (
-            <div class="mb-16">
+            <div class="mb-12">
               <Image
                 width={1020}
                 height={510}
@@ -59,15 +59,15 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
         <div
           class="prose prose-invert max-w-none
 					prose-headings:font-semibold prose-headings:tracking-tight
-					prose-h2:text-2xl prose-h2:mt-14 prose-h2:mb-7
-					prose-h3:text-xl prose-h3:mt-14 prose-h3:mb-7
-					prose-p:my-6
+					prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+					prose-h3:text-xl prose-h3:mt-10 prose-h3:mb-4
+					prose-p:my-4
 					prose-a:text-[--blue] prose-a:underline prose-a:underline-offset-2 hover:prose-a:opacity-70
 					prose-strong:font-semibold
 					prose-code:before:content-none prose-code:after:content-none
-					prose-ul:my-6 prose-ul:pl-8 prose-ul:list-disc
-					prose-ol:my-6 prose-ol:pl-8 prose-ol:list-decimal
-					prose-li:my-2"
+					prose-ul:my-4 prose-ul:pl-8 prose-ul:list-disc
+					prose-ol:my-4 prose-ol:pl-8 prose-ol:list-decimal
+					prose-li:my-1"
         >
           <slot />
         </div>
