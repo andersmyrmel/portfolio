@@ -22,6 +22,47 @@
 - Import global styles only in layouts or `BaseHead.astro`
 - Keep components minimal and reusable
 
+## Design Guidelines
+
+### Design Philosophy
+- Maintain a **minimal, clean aesthetic**
+- Prioritize **readability and content** over decorative elements
+- Use **whitespace strategically** to create visual hierarchy
+- Keep the design **professional and understated**
+
+### Spacing System
+- Page padding: `px-6 py-20 sm:py-32`
+- Section bottom margins: `mb-12` (48px)
+- Header bottom margin: `mb-6` (24px)
+- Section title spacing: `mb-4` (16px)
+- List item gaps: `gap-3` (12px)
+- Paragraph spacing in intro: `mb-4` (16px)
+
+### Typography
+- Headings: `md:text-lg font-medium tracking-tight leading-tight`
+- Body text: `text-[15px] leading-relaxed`
+- Section titles: `text-base font-semibold tracking-tight`
+- Links: `underline decoration-2 underline-offset-2 hover:opacity-60 transition-opacity`
+- Link color: `text-decoration-color: var(--mono8)`
+
+### Blog Post Spacing
+- Header margin: `mb-12`
+- Heading spacing: `mt-10 mb-4`
+- Paragraph margins: `my-4`
+- List margins: `my-4`
+- List item spacing: `my-1`
+
+### Color Usage
+- Use CSS variables from global.css: `var(--mono8)`, `var(--mono9)`, etc.
+- Maintain high contrast for accessibility
+- Keep muted, secondary text at `var(--mono9)`
+
+### Key Principles
+- **Tighter is better**: Use compact spacing that lets typography create hierarchy
+- **No unnecessary decoration**: Avoid emojis, icons, or flourishes unless explicitly requested
+- **Consistent rhythm**: All sections should flow with the same spacing system
+- **Mobile-first**: Ensure design scales gracefully from mobile to desktop
+
 ## General Rules
 - Wait for explicit user instructions before implementing features
 - Ask clarifying questions if requirements are unclear
