@@ -113,20 +113,11 @@ const posts = (await getCollection("blog"))
                       <h3 class="text-[15px] font-normal m-0 group-hover:opacity-60 transition-opacity">
                         {post.data.title}
                       </h3>
-                      <div
-                        class="flex items-center gap-3 text-sm"
-                        style="color: var(--mono9)"
-                      >
-                        <time>
-                          <FormattedDate date={post.data.pubDate} />
-                        </time>
-                        {post.data.description && (
-                          <>
-                            <span>·</span>
-                            <p class="m-0">{post.data.description}</p>
-                          </>
-                        )}
-                      </div>
+                      {post.data.description && (
+                        <p class="text-sm m-0" style="color: var(--mono9)">
+                          {post.data.description}
+                        </p>
+                      )}
                     </div>
                   </a>
                 </li>
