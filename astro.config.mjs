@@ -44,12 +44,16 @@ export default defineConfig({
             settings: { foreground: '#e0a87a' }, // muted peach for functions (Cursor)
           },
           {
-            scope: ['variable', 'variable.parameter', 'variable.other.property', 'meta.object-literal.key'],
-            settings: { foreground: '#c4c4c4' }, // light gray for variables
+            scope: ['variable.other.constant', 'meta.definition.variable'],
+            settings: { foreground: '#a89bcf' }, // muted purple for variable declarations
+          },
+          {
+            scope: ['variable', 'variable.other.readwrite', 'variable.other.object', 'variable.other.property', 'support.variable', 'variable.parameter', 'meta.object-literal.key'],
+            settings: { foreground: '#94c1fa' }, // light blue for all variables/identifiers/properties
           },
           {
             scope: ['punctuation', 'delimiter'],
-            settings: { foreground: '#808080' }, // medium gray for punctuation
+            settings: { foreground: '#909090' }, // medium gray for punctuation
           },
         ],
       },
