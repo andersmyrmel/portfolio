@@ -25,28 +25,31 @@ export default defineConfig({
         tokenColors: [
           {
             scope: ['comment'],
-            settings: { foreground: '#707070' }, // mono9
+            settings: { foreground: '#6d6d6d' }, // muted gray for comments
           },
           {
-            scope: ['keyword', 'storage.type', 'storage.modifier', 'punctuation', 'delimiter', 'boolean'],
-            settings: { foreground: '#707070' }, // mono9 - gray for syntax
+            scope: ['keyword', 'storage.type', 'storage.modifier'],
+            settings: { foreground: '#83c5c0' }, // muted teal for keywords (Cursor)
           },
           {
             scope: ['string', 'string.quoted'],
-            settings: { foreground: '#7e7e7e' }, // mono10 - muted for strings
+            settings: { foreground: '#d89bcf' }, // muted pink for strings (Cursor)
           },
           {
-            scope: [
-              'constant.numeric',
-              'constant.language',
-              'entity.name.function',
-              'support.function',
-              'variable',
-              'variable.parameter',
-              'variable.other.property',
-              'meta.object-literal.key',
-            ],
-            settings: { foreground: '#ededed' }, // mono12 - white for identifiers
+            scope: ['constant.numeric', 'constant.language', 'boolean'],
+            settings: { foreground: '#dbc28d' }, // muted gold for constants (Cursor)
+          },
+          {
+            scope: ['entity.name.function', 'support.function'],
+            settings: { foreground: '#e0a87a' }, // muted peach for functions (Cursor)
+          },
+          {
+            scope: ['variable', 'variable.parameter', 'variable.other.property', 'meta.object-literal.key'],
+            settings: { foreground: '#c4c4c4' }, // light gray for variables
+          },
+          {
+            scope: ['punctuation', 'delimiter'],
+            settings: { foreground: '#808080' }, // medium gray for punctuation
           },
         ],
       },
