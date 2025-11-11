@@ -8,7 +8,7 @@ Every AI project I've built needed the same security boilerplate: _block instruc
 
 <br />
 
-I got tired of copy-pasting the same 200 lines of regex. Here's how you can skip the boilerplate in 2 minutes with first-class DX:
+I got tired of copy-pasting the same 200 lines of regex. Here's how you can skip the boilerplate in 2 minutes:
 
 <br />
 
