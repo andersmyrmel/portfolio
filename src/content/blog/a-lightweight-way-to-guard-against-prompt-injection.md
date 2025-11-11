@@ -13,6 +13,8 @@ I got tired of copy-pasting the same 200 lines of regex. Here's how you can skip
 <br />
 
 ```javascript
+import vard from "@andersmyrmel/vard";
+
 // Zero-config usage
 const safe = vard("Hello, how can I help?");
 // Returns: "Hello, how can I help?"
