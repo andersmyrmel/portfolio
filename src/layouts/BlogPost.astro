@@ -27,14 +27,24 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
             style="color: var(--mono9)"
           >
             <time>
-              <FormattedDate date={pubDate} />
+              <a
+                href="/"
+                class="no-underline transition-opacity hover:opacity-70"
+              >
+                <FormattedDate date={pubDate} />
+              </a>
             </time>
             {
               updatedDate && (
                 <>
                   <span>·</span>
                   <time>
-                    Updated <FormattedDate date={updatedDate} />
+                    <a
+                      href="/"
+                      class="no-underline transition-opacity hover:opacity-70"
+                    >
+                      Updated <FormattedDate date={updatedDate} />
+                    </a>
                   </time>
                 </>
               )

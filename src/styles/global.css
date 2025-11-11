@@ -50,6 +50,18 @@ a {
 	color: inherit;
 }
 
+.prose a {
+	text-decoration: underline;
+	text-decoration-color: var(--mono8);
+	text-decoration-thickness: 2px;
+	text-underline-offset: 2px;
+	transition: opacity 150ms ease;
+}
+
+.prose a:hover {
+	opacity: 0.7;
+}
+
 /* Code Block Styling */
 .prose code:not(pre code) {
 	color: var(--mono12);
