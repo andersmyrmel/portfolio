@@ -1,6 +1,6 @@
 ---
 title: "A Lightweight Way to Guard Against Prompt Injection"
-description: "Simple, composable prompt validation for AI apps"
+description: "Simple, composable guards for safer prompts and cleaner code"
 pubDate: "Nov 11 2025"
 ---
 
