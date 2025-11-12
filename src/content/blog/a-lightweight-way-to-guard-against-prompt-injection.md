@@ -42,7 +42,7 @@ const safe = chatVard(userInput);
 
 <br />
 
-For API routes, you can use safe parsing instead of try/catch:
+For API routes, you can use safe parsing instead of `try/catch`:
 
 <br />
 
