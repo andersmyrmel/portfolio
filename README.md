@@ -11,8 +11,9 @@ Astro · Tailwind CSS · TypeScript
 ## Development
 
 ```bash
-npm install
-npm run dev
+corepack enable
+pnpm install --frozen-lockfile
+pnpm dev
 ```
 
 ## License
